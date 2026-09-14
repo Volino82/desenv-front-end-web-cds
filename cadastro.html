@@ -3,21 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aula 01</title>
+    <title>Familia Bracinho - Cadastro</title>
 </head>
 <body>
-    <nav> <a href="index.html">Home</a><a> | </a>
-    </a><a href="projetos.html">Nossos Projetos</a><a> | </a>
-    <a href="cadastro.html">Seja um parceiro</a>
-
-    </nav>
     <header>
-        <h1>Família Bracinho</h1>
-        <p>Fazendo cabê since 2015</p>
+        <nav>
+            <a href="index.html">Home</a><a> | </a>
+            <a href="projetos.html">Nossos MLK's</a><a> | </a>
+            <a href="cadastro.html">Seja um parceiro</a>
+        </nav>
+        <h1>Cadastre-se</h1>
     </header>
+
     <main>
-        <h2>Cadastr-se</h2>
-        <p>Faz que tem conhece</p>
+        <section>
+            <h2>Formulário de Cadastro</h2>
+            <p>Preencha o formulário abaixo para se tornar um parceiro ou voluntário da Família Bracinho.</p>
+        </section>
+        <section>
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="telefone">Telefone/Whatsapp:</label>
+                    <input type="tel" id="telefone" name="telefone" required>
+            </fieldset>
+            <fieldset>
+                <legend>Endereço</legend>
+                    <label for="cep">CEP:</label>
+                    <input type="number" max="99999999" id="cep" name="cep" required>
+                    <label for="rua">Rua:</label>
+                    <input type="text" id="rua" name="rua" required>
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" id="complemento" name="complemento" required>
+                    <label for="cidade">Cidade:</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                    <label for="estado">Estado:</label>
+                    <input type="text" id="estado" name="estado" required>
+            </fieldset>
+            <fieldset>
+                <legend>Voluntariado e Parcerias</legend>
+                    <label for="interesse">Área de Interesse:</label>
+                    <select id="interesse" name="interesse" required>
+                        <option value="">Selecione</option>
+                        <option value="resgate">Resgate</option>
+                        <option value="lartemporario">Lar Temporário</option>
+                        <option value="campanhas">Campanhas</option>
+                        <option value="projetos">Projetos</option>
+                    </select>
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" required></textarea>
+            </fieldset>
+        </section>
     </main>
+
+    <footer>
+        <p>Todos os direitos reservados</p>
+        <p>Quem faz tem conhece o que sabe é por tanto faz que cabê!</p>
+    </footer>
+
 </body>
 </html>
