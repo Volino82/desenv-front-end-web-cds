@@ -1,20 +1,20 @@
 :root {
     /* 1. Paleta de Cores (10 Cores: Primárias, Secundárias, Neutras e Feedback) */
     --color-primary: #ffaa00; /* Acolhimento e Confiança */
-    --color-primary-dark: #99220d; /* Textos em Destaque e Cabeçalhos*/
-    --color-secondary: #ffe100; /* Calor, Cuidado e Afeto Animal*/
-    --color-secondary-light: #c6eaa0; /* Hover de Botões e Destasques*/
+    --color-primary-dark: #490b00; /* Textos em Destaque e Cabeçalhos*/
+    --color-secondary: #99220d; /* Calor, Cuidado e Afeto Animal*/
+    --color-secondary-light: #ffe100; /* Hover de Botões e Destasques*/
     --color-neutral-dark: #212529; /* Texto Principal - Alto Contraste*/ 
     --color-neutral-light: #F8F9FA; /* Fundo Geral para evitar fadiga visual*/
     --color-neutral-white: #FFFFFF; /* Fundo de Cards e Formulários*/
     --color-neutral-border: #DEE2E6; /* Bordas de Inputs e Separadores*/
     
     /* 2. Escala Tipográfica (5 Hierarquias com Unidades Relativas rem) */ 
-    --font-size-xs: 0.875rem; /* 14px - Legendas, Placeholders e Rótulos Menores */
-    --font-size-sm: 1rem; /* 16px - Corpo de Texto Principal (Body) */
-    --font-size-md: 1.25rem; /* 20px - Subtítulos de Seção / H3 / Legends */
-    --font-size-lg: 1.75rem; /* 28px - Títulos de Seção / H2 */
-    --font-size-xl: 2.5rem; /* 40px - Título Principal da Página / H1 */
+    --font-size-xs: 0.625rem; /* 10px - Legendas, Placeholders e Rótulos Menores */
+    --font-size-sm: 0.75rem; /* 12px - Corpo de Texto Principal (Body) */
+    --font-size-md: 1rem; /* 16px - Subtítulos de Seção / H3 / Legends */
+    --font-size-lg: 1.375rem; /* 22px - Títulos de Seção / H2 */
+    --font-size-xl: 2.25rem; /* 36px - Título Principal da Página / H1 */
     
     /* 3. Escala Modular de Espaçamentos (Base 8px) */ 
     --spacing-xs: 0.25rem; /* 4px - Espaçamentos Internos Mínimos */
@@ -23,4 +23,83 @@
     --spacing-lg: 1.5rem; /* 24px - Espaçamento Interno de Fieldsets e Cards */
     --spacing-xl: 2rem; /* 32px - Margens entre Seções da Página */
     --spacing-xxl: 3rem; /* 48px - Espaçamento do Header e Footer */
+}
+
+header {
+    background-color: var(--color-primary);
+    color: var(--color-neutral-dark);
+    padding: var(--spacing-lg);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+
+}
+
+header h1 {
+    font-size: var(--font-size-xl);
+    color: var(--color-primary-dark);
+}
+header nav a {
+    color: var(--color-neutral-light);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav a:hover {
+    color: var(--color-secondary);
+}
+
+.card-secao {
+    background-color: var(--color-neutral-white);
+    border: 1px; scrollbar-width: var(--color-neutral-border);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+}
+
+footer {
+    background-color: var(--color-primary-dark);
+    color: var(--color-neutral-light);
+    text-align: center;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr); /* Sistema padão de 12 colunas */
+    gap: var(--spacing-md);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.span-6, .span-12 {
+    grid-column: span 12;
+}
+
+.text-center {
+    text-align: center
+}
+
+@media (min-width: 576px) { 
+    body {
+        padding: var(--spacing-lg);
+    } 
+}
+
+@media (min-width: 768px) {
+    .span-6 {
+        grid-column: span 6;
+    }
+}
+
+@media (min-width: 992px) { 
+    .grid-container { 
+        gap: var(--spacing-lg); 
+    } 
+}
+
+@media (min-width: 1200px) {
+    .grid-container {
+        max-width: 1200px;
+    }
 }
