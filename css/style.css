@@ -1,0 +1,26 @@
+:root {
+    /* 1. Paleta de Cores (10 Cores: Primárias, Secundárias, Neutras e Feedback) */
+    --color-primary: #ffaa00; /* Acolhimento e Confiança */
+    --color-primary-dark: #99220d; /* Textos em Destaque e Cabeçalhos*/
+    --color-secondary: #ffe100; /* Calor, Cuidado e Afeto Animal*/
+    --color-secondary-light: #c6eaa0; /* Hover de Botões e Destasques*/
+    --color-neutral-dark: #212529; /* Texto Principal - Alto Contraste*/ 
+    --color-neutral-light: #F8F9FA; /* Fundo Geral para evitar fadiga visual*/
+    --color-neutral-white: #FFFFFF; /* Fundo de Cards e Formulários*/
+    --color-neutral-border: #DEE2E6; /* Bordas de Inputs e Separadores*/
+    
+    /* 2. Escala Tipográfica (5 Hierarquias com Unidades Relativas rem) */ 
+    --font-size-xs: 0.875rem; /* 14px - Legendas, Placeholders e Rótulos Menores */
+    --font-size-sm: 1rem; /* 16px - Corpo de Texto Principal (Body) */
+    --font-size-md: 1.25rem; /* 20px - Subtítulos de Seção / H3 / Legends */
+    --font-size-lg: 1.75rem; /* 28px - Títulos de Seção / H2 */
+    --font-size-xl: 2.5rem; /* 40px - Título Principal da Página / H1 */
+    
+    /* 3. Escala Modular de Espaçamentos (Base 8px) */ 
+    --spacing-xs: 0.25rem; /* 4px - Espaçamentos Internos Mínimos */
+    --spacing-sm: 0.5rem; /* 8px - Espaçamento entre Label e Input */
+    --spacing-md: 1rem; /* 16px - Padding de Botões e Margens de Parágrafo */
+    --spacing-lg: 1.5rem; /* 24px - Espaçamento Interno de Fieldsets e Cards */
+    --spacing-xl: 2rem; /* 32px - Margens entre Seções da Página */
+    --spacing-xxl: 3rem; /* 48px - Espaçamento do Header e Footer */
+}
