@@ -9,20 +9,20 @@
 <body>
     <header>
         <nav>
-            <a href="index.html">Home</a><a> | </a>
-            <a href="projetos.html">Nossos MLK's</a><a> | </a>
+            <a href="index.html">Home</a>
+            <a href="projetos.html">Nossos MLK's</a>
             <a href="cadastro.html">Seja um parceiro</a>
         </nav>
         <h1>Cadastre-se</h1>
     </header>
 
-    <main>
-        <section>
+    <main class="grid-container">
+        <section class="card-secao span-12">
             <h2>Formulário de Cadastro</h2>
             <p>Preencha o formulário abaixo para se tornar um parceiro ou voluntário da Família Bracinho.</p>
         </section>
-        <form>
-            <fieldset>
+        <form class="card-secao span-12">
+            <fieldset class="form-grupo">
                 <legend>Dados Pessoais</legend>
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
@@ -44,7 +44,7 @@
                         placeholder="21 98765-4321"
                         required>
             </fieldset>
-            <fieldset>
+            <fieldset class="form-grupo">
                 <legend>Endereço</legend>
                     <label for="cep">CEP:</label>
                     <input type="text" id="cep" name="cep"
@@ -63,7 +63,7 @@
                     <label for="estado">Estado:</label>
                     <input type="text" id="estado" name="estado" placeholder="UF">
             </fieldset>
-            <fieldset>
+            <fieldset class="form-grupo">
                 <legend>Voluntariado e Parcerias</legend>
                     <label for="interesse">Área de Interesse:</label>
                     <select id="interesse" name="interesse" required>
