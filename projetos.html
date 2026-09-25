@@ -8,10 +8,21 @@
 </head>
 <body>
     <header>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger-icon">&#9776;</label>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="projetos.html">Nossos MLK's</a>
-            <a href="cadastro.html">Seja um parceiro</a>
+            <ul class="menu-principal">
+                <li><a class="click-menu" href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="click-menu" href="projetos.html">Nossos MLK's</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projetos.html#idosos">Geração Sênior</a></li>
+                        <li><a href="projetos.html#filhotes">Recomeço</a></li>
+                        <li><a href="projetos.html#gatos">Cato</a></li>
+                    </ul>
+                </li>
+                <li><a class="click-menu" href="cadastro.html">Seja um parceiro</a></li>
+            </ul>
         </nav>
         <h1>Nossos MLK's</h1>
     </header>
@@ -20,27 +31,33 @@
         <section class="card-secao span-6">
             <h2>Atuação</h2>
             <article class="card-secao">
-                <h3>Resgates</h3>
+                <div class="card-header">
+                    <h3>Resgates</h3>
+                    <span class="badge badge-sucesso" role="status">Ativo</span>
+                </div>
                 <p>Como localizamos e resgatamos animais</p>
             </article>
             <article class="card-secao">
-                <h3>Campanhas</h3>
+                <div class="card-header">
+                    <h3>Campanhas</h3>
+                    <span class="badge badge-urgente" role="status">Urgente</span>
+                </div>
                 <p>Como realizamos campanhas de adoção e conscientização</p>
             </article>
         </section>
         <section class="card-secao span-6">
             <h2>Projetos</h2>
-            <article class="card-secao">
+            <article class="card-secao" id="idosos">
                 <h3>Geração Sênior</h3>
                 <p>Inspiração: Gaia e Baltazhar</p>
                 <p>Foco: Resgate, e cuidados cuidados especiais para animais idosos.</p>
             </article>
-            <article class="card-secao">
+            <article class="card-secao" id="filhotes">
                 <h3>Recomeço</h3>
                 <p>Inspiração: Marrom e Sharapova</p>
                 <p>Foco: Resgate e e cuidados para animais de 0 a 2 anos</p>
             </article>
-            <article class="card-secao">
+            <article class="card-secao" id="gatos">
                 <h3>CaTo: Canto do Gato</h3>
                 <p>inspiração: Pelugra</p>
                 <p>Foco: Resgate, acolhimento e convivência entre cães e gatos</p>
@@ -49,11 +66,17 @@
         <section class="card-secao span-12">
             <h2>Campanhas</h2>
             <article class="card-secao">
-                <h3>Feiras</h3>
+                <div class="card-header">
+                    <h3>Feiras</h3>
+                    <span class="badge badge-alerta" role="status">Atenção</span>
+                </div>
                 <p>datas e horários de feira de adoções</p>
             </article>
             <article class="card-secao">
-                <h3>Castração</h3>
+                <div class="card-header">
+                    <h3>Castração</h3>
+                    <span class="badge badge-alerta" role="status">Atenção</span>
+                </div>
                 <p>Informações sobre eventos de castração de animais</p>
             </article>
         </section>
@@ -62,15 +85,15 @@
             <article class="card-secao">
                 <h3>Doações</h3>
                 <ul>
-                    <li>Doações em dinheiro</li>
-                    <li>Doações de ração</li>
-                    <li>Doações de medicamentos</li>
+                    <li class="badge badge-info">Doações em dinheiro</li>
+                    <li class="badge badge-info">Doações de ração</li>
+                    <li class="badge badge-info">Doações de medicamentos</li>
                 </ul>
             </article>
             <article class="card-secao">
                 <h3>Voluntariado</h3>
                 <p>Como se tornar um voluntário da Família Bracinho</p>
-                <a href="cadastro.html">Clique aqui para se cadastrar</a>
+                <a  class="badge badge-alerta" href="cadastro.html">Clique aqui para se cadastrar</a>
             </article>
         </section>
     </main>

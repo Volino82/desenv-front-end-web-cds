@@ -8,20 +8,41 @@
 </head>
 <body>
     <header>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger-icon">&#9776;</label>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="projetos.html">Nossos MLK's</a>
-            <a href="cadastro.html">Seja um parceiro</a>
+            <ul class="menu-principal">
+                <li><a class="click-menu" href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a class="click-menu" href="projetos.html">Nossos MLK's</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projetos.html#idosos">Geração Sênior</a></li>
+                        <li><a href="projetos.html#filhotes">Recomeço</a></li>
+                        <li><a href="projetos.html#gatos">Cato</a></li>
+                    </ul>
+                </li>
+                <li><a class="click-menu" href="cadastro.html">Seja um parceiro</a></li>
+            </ul>
         </nav>
         <h1>Cadastre-se</h1>
     </header>
 
     <main class="grid-container">
+
         <section class="card-secao span-12">
             <h2>Formulário de Cadastro</h2>
             <p>Preencha o formulário abaixo para se tornar um parceiro ou voluntário da Família Bracinho.</p>
+        
+            <div id="sucesso" class="alerta alerta-sucesso" role="alert">
+                <div class="alerta-icone">✓</div>
+                <div class="alerta-conteudo">
+                    <strong>Cadastro enviado com sucesso!</strong>
+                    <p>Agradeçemos seu interesse em ser parceiro da Família Bracinho</p>
+                </div>
+            </div>
         </section>
-        <form class="card-secao span-12">
+
+        <form class="card-secao span-12" action="#sucesso">
             <fieldset class="form-grupo">
                 <legend>Dados Pessoais</legend>
                     <label for="nome">Nome:</label>
@@ -34,7 +55,7 @@
                         placeholder="000.000.000-00"
                         required>
                     
-                        <label for="email">Email:</label>
+                    <label for="email">Email:</label>
                     <input type="email" id="email" name="email" placeholder="usuario@email.com" required>
                     
                     <label for="telefone">Telefone/Whatsapp:</label>
@@ -51,7 +72,7 @@
                         pattern="[0-9]{5}-[0-9]{3}"
                         title="Digite um CEP válido no formato XXXXX-XXX"
                         placeholder="00000-000" 
-                        required >
+                        required>
 
                     <label for="rua">Logradouro:</label>
                     <input type="text" id="rua" name="rua" placeholder="Rua A, 123">
@@ -76,7 +97,7 @@
                     <label for="mensagem">Mensagem:</label>
                     <textarea id="mensagem" name="mensagem" placeholder="Faça seu relato."></textarea>
             </fieldset>
-            <button type="submit">Enviar</button>
+            <button class="btn-enviar" type="submit">Enviar</button>
         </form>
     </main>
 
