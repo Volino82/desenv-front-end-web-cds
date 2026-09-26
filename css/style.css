@@ -103,6 +103,13 @@ header nav ul.menu-principal {
     justify-content: space-between;
 }
 
+.card-secao h3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .btn-enviar {
     background-color: var(--color-secondary);
     color: var(--color-neutral-white);
@@ -140,7 +147,7 @@ form:has(:invalid) .btn-enviar {
 
 .badge {
     display: inline-block;
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: var(--spacing-xs) 25px;
     font-size: var(--font-size-xs);
     text-transform: uppercase;
     font-weight: bold;
@@ -172,6 +179,10 @@ form:has(:invalid) .btn-enviar {
     background-color: var(--color-neutral-light);
     color: var(--color-neutral-dark);
     border: 1px solid var(--color-neutral-border)
+}
+
+#contato ul li{
+    list-style: none;
 }
 
 footer {
@@ -279,16 +290,17 @@ input:required:invalid:not(:placeholder-shown){
     border-left-color: #2e7d32;
     color: #1b5e20;
 }
-.alerta-icone {
-    color: #2e7d32;
+
+.alerta-info {
+    background-color: #f5e994;
+    border-left-color: var(--color-primary);
+    color: var(--color-primary-dark);
 }
 
-.alerta-sucesso {
-    display: none;
-}
-
-.alerta-sucesso:target {
-    display: flex;
+.alerta-atencao {
+    background-color: #ed948a;
+    border-left-color: red;
+    color: var(--color-neutral-dark);
 }
 
 @media (min-width: 576px){
@@ -354,3 +366,134 @@ input:required:invalid:not(:placeholder-shown){
         max-width: 1200px;
     }
 }
+
+@keyframes toastEntrada {
+    from {
+        opacity: 0;
+        transform: translateX(120%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toast-auto {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background-color: var(--color-primary);
+    padding: var(--spacing-md);
+    border-radius: var(--spacing-sm);
+    box-shadow: 0 4px 15px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    z-index: 999;
+    max-width: 360px;
+    opacity: 0;
+    transform: translateX(120%);
+    animation: toastEntrada 0.5s ease-out 1s forwards;
+}
+
+.toast-auto .toast-icone {
+    font-size: 2.5rem;
+}
+
+.toast-auto .toast-conteudo strong {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-dark);
+    text-align: center;
+}
+
+.toast-auto .toast-conteudo p {
+    font-size: var(--font-size-xs);
+    color: var(--color-neutral-dark);
+    text-align: justify;
+}
+
+.toast-auto .toast-fechar {
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--color-neutral-dark);
+    cursor: pointer;
+}
+
+.modal-container {
+    position: fixed;
+    inset: 0;
+    background-color: var(--color-primary-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.modal-container:target {
+    opacity: 0.9;
+    pointer-events: auto;
+}
+
+.modal-card {
+    background-color: var(--color-neutral-light);
+    padding: var(--spacing-xl);
+    border-radius: var(--spacing-sm);
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 25px;
+    border-top: 6px solid #2e7d32;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;   
+}
+
+.modal-container:target .modal-card {
+    transform: translateY(0);
+}
+
+.modal-fechar {
+    position: absolute;
+    top: var(--spacing-sm);
+    right: var(--spacing-md);
+    font-size: 1.8rem;
+    text-decoration: none;
+    color: var(--color-neutral-dark);
+    line-height: 1;
+}
+
+.modal-icone { 
+    font-size: 2.5rem; 
+    margin-bottom: var(--spacing-xs); 
+} 
+
+.modal-card h3 { 
+    margin-bottom: var(--spacing-xs); 
+    color: var(--color-neutral-dark); 
+} 
+.modal-card p {
+    font-size: var(--font-size-sm); 
+    color: var(--color-neutral-dark); 
+    line-height: 1.4; 
+}
+
+.btn-modal-concluir { 
+    display: inline-block; 
+    margin-top: var(--spacing-md); 
+    padding: var(--spacing-sm) var(--spacing-lg); 
+    background-color: var(--color-primary); 
+    color: var(--color-primary-dark); 
+    text-decoration: none; 
+    font-weight: bold; 
+    border-radius: var(--spacing-xs); 
+    transition: background-color 0.2s; 
+}
+
+.btn-modal-concluir:hover { 
+    background-color: var(--color-primary-dark); 
+    color: var(--color-neutral-light);
+} 

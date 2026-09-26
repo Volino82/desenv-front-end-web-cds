@@ -32,17 +32,16 @@
         <section class="card-secao span-12">
             <h2>Formulário de Cadastro</h2>
             <p>Preencha o formulário abaixo para se tornar um parceiro ou voluntário da Família Bracinho.</p>
-        
-            <div id="sucesso" class="alerta alerta-sucesso" role="alert">
-                <div class="alerta-icone">✓</div>
+            <div class="alerta alerta-atencao" role="alert">
+                <span class="alerta-icone">!</span>
                 <div class="alerta-conteudo">
-                    <strong>Cadastro enviado com sucesso!</strong>
-                    <p>Agradeçemos seu interesse em ser parceiro da Família Bracinho</p>
-                </div>
+                    <strong>Preencha os campos obrigatórios</strong>
+                    <p>O botão de envio só será liberado com o preenchimento correto</p>
+                </div>    
             </div>
         </section>
 
-        <form class="card-secao span-12" action="#sucesso">
+        <form class="card-secao span-12" action="#modal-sucesso" method="GET">
             <fieldset class="form-grupo">
                 <legend>Dados Pessoais</legend>
                     <label for="nome">Nome:</label>
@@ -105,6 +104,20 @@
         <p>Todos os direitos reservados</p>
         <p>Quem faz tem conhece o que sabe é por tanto faz que cabê!</p>
     </footer>
+
+    <div id="modal-sucesso" class="modal-container" role="dialog" aria-labelledby="modal-titulo">
+        <div class="modal-card">
+            <a href="#" class="modal-fechar" aria-label="Fechar Modal">&times;</a>
+
+            <div class="modal-icone">🎉</div>
+            <h3 id="modal-titulo">Cadastro Realizado</h3>
+            <p>A <strong>Família Bracinho</strong> agradece seu cadastro como parceiro da nossa ONG</p>
+
+            <div class="=modal-acoes">
+                <a href="#" class="btn-modal-concluir">Concluir</a>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
