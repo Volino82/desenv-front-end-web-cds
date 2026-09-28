@@ -59,6 +59,7 @@ header h1 {
 .click-menu {
     color: var(--color-neutral-white);
     font-weight: bold;
+    text-decoration: none;
 }
 
 .click-menu:hover {
