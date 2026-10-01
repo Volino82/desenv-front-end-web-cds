@@ -315,7 +315,7 @@ input:required:invalid:not(:placeholder-shown){
         grid-column: span 6;
     }
 
-    .span-6#projeto{
+    .span-4{
         grid-column: span 4;
     }
 
