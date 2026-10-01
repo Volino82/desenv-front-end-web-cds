@@ -315,6 +315,10 @@ input:required:invalid:not(:placeholder-shown){
         grid-column: span 6;
     }
 
+    .span-6#projeto{
+        grid-column: span 4;
+    }
+
     .hamburger-icon {
         display: none;
     }
