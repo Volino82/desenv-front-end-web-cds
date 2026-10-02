@@ -4,6 +4,50 @@ const routes = {
     '#/cadastro': 'html/cadastro.html'
 };
 
+const projetosDados = [
+    {
+        id: 'idoso',
+        titulo: 'Geração Sênior',
+        status: 'Ativo',
+        descricao: 'Resgate, e cuidados especiais para animais idosos.',
+        inspiracao: 'Gaia e Baltazhar'
+    },
+    {
+        id: 'filhotes',
+        titulo: 'Recomeço',
+        status: 'Ativo',
+        descricao: 'Resgate e cuidados para animais de 0 a 2 anos',
+        inspiracao: 'Marrom e Sharapova'
+    },
+    {
+        id: 'gatos',
+        titulo: 'CaTo: Canto do Gato',
+        status: 'Ativo',
+        descricao: 'Resgate, acolhimento e convivência entre cães e gatos',
+        inspiracao: 'Pelugra'
+    }
+];
+
+function criarCardProjeto(projeto) {
+    return `
+    <article class="card-secao span-4" id="${projeto.id}">
+        <h3>
+            ${projeto.titulo}
+            <span class="badge badge-sucesso" role="status">${projeto.status}</span>
+        </h3>
+        <p>Inspiração: ${projeto.inspiracao}</p>
+        <p>Foco: ${projeto.descricao}</p>
+    </article>
+    `
+};
+
+function renderizarProjetos() {
+    const containerProjetos = document.getElementById('lista-projetos');
+    if (!containerProjetos) return;
+
+    containerProjetos.innerHTML = projetosDados.map(criarCardProjeto).join('');
+};
+
 const appContainer = document.getElementById('app');
 
 async function renderView() {
@@ -29,6 +73,7 @@ async function renderView() {
 
         const htmlContent = await response.text();
         appContainer.innerHTML = htmlContent;
+        renderizarProjetos();
 
         if (internalAnchor) {
             const targetElement = document.querySelector(internalAnchor);
