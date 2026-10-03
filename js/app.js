@@ -50,6 +50,74 @@ function renderizarProjetos() {
 
 const appContainer = document.getElementById('app');
 
+function validarCampo(campo) {
+    const campovalido = campo.checkValidity();
+
+    if (!campovalido) {
+        campo.classList.add('campo-invalido');
+        campo.classList.remove('campo-valido');
+    } else {
+        campo.classList.remove('campo-invalido');
+        campo.classList.add('campo-valido');
+    }
+    return campovalido;
+}
+
+function validarFormulario() {
+    const form = document.getElementById('form-cadastro');
+
+    console.log('formulario: ', form);
+    if (!form) return;
+
+    const campos = form.querySelectorAll('input, textarea, select');
+    campos.forEach(campo => {
+        campo.addEventListener('input', function () {
+            validarCampo(campo)
+        });
+        campo.addEventListener('blur', function () {
+            validarCampo(campo)
+        });
+    });
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        let formValido = true;
+        const dadosFormulario = {};
+
+        campos.forEach(campo => {
+            if (!validarCampo(campo)) {
+                formValido = false;
+            } else if (campo.name) {
+                dadosFormulario[campo.name] = campo.value;
+            }
+        });
+
+        if (formValido) {
+            localStorage.setItem('cadastroParceiro', JSON.stringify(dadosFormulario));
+
+            const modalSucesso = document.getElementById('modal-sucesso');
+            if (modalSucesso) {
+                modalSucesso.style.display = 'flex';
+            }
+            form.reset();
+            campos.forEach(c => c.classList.remove('campo-valido','campo-invalido'));
+
+        } else {
+            consle.warn('Campos Inconsistentes!')
+        }
+    });
+
+    if (modalSucesso) {
+        const bnFechar = modalSucesso.querySelector('.btn-fechar');
+        if (bnFechar) {
+            bnFechar.addEventListener('click', function (e) {
+                e.preventDefault();
+                modalSucesso.style.display = 'none';
+            });
+        }
+    }
+}
+
 async function renderView() {
     let rawHash = window.location.hash || '#/home';
     
@@ -74,6 +142,7 @@ async function renderView() {
         const htmlContent = await response.text();
         appContainer.innerHTML = htmlContent;
         renderizarProjetos();
+        validarFormulario();
 
         if (internalAnchor) {
             const targetElement = document.querySelector(internalAnchor);
