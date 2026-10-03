@@ -38,8 +38,8 @@ function criarCardProjeto(projeto) {
         <p>Inspiração: ${projeto.inspiracao}</p>
         <p>Foco: ${projeto.descricao}</p>
     </article>
-    `
-};
+    `;
+}
 
 function renderizarProjetos() {
     const containerProjetos = document.getElementById('lista-projetos');
@@ -51,16 +51,16 @@ function renderizarProjetos() {
 const appContainer = document.getElementById('app');
 
 function validarCampo(campo) {
-    const campovalido = campo.checkValidity();
+    const campoValido = campo.checkValidity();
 
-    if (!campovalido) {
+    if (!campoValido) {
         campo.classList.add('campo-invalido');
         campo.classList.remove('campo-valido');
     } else {
         campo.classList.remove('campo-invalido');
         campo.classList.add('campo-valido');
     }
-    return campovalido;
+    return campoValido;
 }
 
 function validarFormulario() {
@@ -70,6 +70,8 @@ function validarFormulario() {
     if (!form) return;
 
     const campos = form.querySelectorAll('input, textarea, select');
+    const modalSucesso = document.getElementById('modal-sucesso');
+
     campos.forEach(campo => {
         campo.addEventListener('input', function () {
             validarCampo(campo)
@@ -95,27 +97,30 @@ function validarFormulario() {
         if (formValido) {
             localStorage.setItem('cadastroParceiro', JSON.stringify(dadosFormulario));
 
-            const modalSucesso = document.getElementById('modal-sucesso');
             if (modalSucesso) {
-                modalSucesso.style.display = 'flex';
+                modalSucesso.style.opacity = 0.9;
+                modalSucesso.style.pointerEvents = 'auto';
             }
+            
             form.reset();
             campos.forEach(c => c.classList.remove('campo-valido','campo-invalido'));
-
+        
         } else {
             consle.warn('Campos Inconsistentes!')
-        }
+        } console.log(dadosFormulario);
     });
 
     if (modalSucesso) {
-        const bnFechar = modalSucesso.querySelector('.btn-fechar');
-        if (bnFechar) {
-            bnFechar.addEventListener('click', function (e) {
+        const btnFechar = modalSucesso.querySelector('.modal-fechar, .btn-modal-concluir, [href="#/cadastro"]');
+        if (btnFechar) {
+            btnFechar.addEventListener('click', function (e) {
                 e.preventDefault();
-                modalSucesso.style.display = 'none';
+                modalSucesso.style.opacity = 0;
+                modalSucesso.style.pointerEvents = 'none';
+                window.location.hash = '#/cadastro';
             });
         }
-    }
+    } 
 }
 
 async function renderView() {
