@@ -63,6 +63,27 @@ function validarCampo(campo) {
     return campoValido;
 }
 
+function carregarDadosSalvos() {
+    const form = document.getElementById('form-cadastro');
+    if (!form) return;
+
+    const dadosSalvos = localStorage.getItem('cadastroParceiro');
+    if (dadosSalvos) {
+        try {
+            const dadosFormulario = JASON.parse(dadosSalvos);
+            Object.keys(dadosFormulario).forEach(key => {
+                const campo = form.querySelector(`[name="${key}"]`);
+                if (campo) {
+                    campo.value = dadosFormulario[key];
+                    validarCampo(campo);
+                }
+            });
+        } catch (error) {
+            console.error('Erro ao ler s dados do localStorage: ', error);
+        }
+    }    
+}
+
 function validarFormulario() {
     const form = document.getElementById('form-cadastro');
 
@@ -71,6 +92,8 @@ function validarFormulario() {
 
     const campos = form.querySelectorAll('input, textarea, select');
     const modalSucesso = document.getElementById('modal-sucesso');
+
+    carregarDadosSalvos();
 
     campos.forEach(campo => {
         campo.addEventListener('input', function () {
