@@ -70,7 +70,7 @@ function carregarDadosSalvos() {
     const dadosSalvos = localStorage.getItem('cadastroParceiro');
     if (dadosSalvos) {
         try {
-            const dadosFormulario = JASON.parse(dadosSalvos);
+            const dadosFormulario = JSON.parse(dadosSalvos);
             Object.keys(dadosFormulario).forEach(key => {
                 const campo = form.querySelector(`[name="${key}"]`);
                 if (campo) {
